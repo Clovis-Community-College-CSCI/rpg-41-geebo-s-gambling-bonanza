@@ -1,7 +1,7 @@
 # rpg-41-geebo-s-gambling-bonanza
 
 - EVAN BETHEL, INHERITOR OF SUFFERING
-
+- STEFANIE MOTSENBOCKER, VIBING (and the item class)
 
 - JUN KUANG, THE BRIDGEEngineer
 
