@@ -15,22 +15,22 @@ int main (void) {
 	initscr();
 	refresh();
 	start_color();
-	init_pair(1, COLOR_BLACK, COLOR_RED);
-	init_pair(2, COLOR_BLACK, COLOR_BLUE);
+	init_pair(1, COLOR_BLACK, COLOR_RED);							//all the color pairs
+	init_pair(2, COLOR_BLACK, COLOR_BLUE);							//black font, diff color background/window
 	init_pair(3, COLOR_BLACK, COLOR_MAGENTA);
 	init_pair(4, COLOR_BLACK, COLOR_CYAN);
 
-	getmaxyx(stdscr, maxy, maxx);				//calculate window sizes && locations
+	getmaxyx(stdscr, maxy, maxx);									//calculate window sizes && locations
 	halfx = maxx / 2;
 	halfy = maxy / 2;
 
-	if( (a = newwin(halfy, halfx, 0, 0)) == NULL) bomb();
+	if( (a = newwin(halfy, halfx, 0, 0)) == NULL) bomb();			//creates the 4 windows
 	if( (b = newwin(halfy, halfx, 0, halfx)) == NULL) bomb();
 	if( (c = newwin(halfy, halfx, halfy, 0)) == NULL) bomb();
 	if( (d = newwin(halfy, halfx, halfy, halfx)) == NULL) bomb();
 
-	mvwaddstr(a,0,0, "Game 1: BLACKJACK\n");
-	wbkgd(a, COLOR_PAIR(1));
+	mvwaddstr(a,0,0, "Game 1: BLACKJACK\n");						//writing to each window
+	wbkgd(a, COLOR_PAIR(1));										//assigning color pair to each window
 	wrefresh(a);
 	
 	mvwaddstr(b,0,0, "Game 2: RIDE THE BUS\n");
