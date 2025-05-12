@@ -81,6 +81,7 @@ void rideTheBus() {
 //SLOTS AND SYMBOL ENUM//
 /////////////////////////
 
+/*
 enum symbols{
 	CHERRY,
 	SEVEN,
@@ -88,13 +89,42 @@ enum symbols{
 };
 
 const char* names[] = { "CHERRY", "SEVEN", "BELL" };
+*/
+
+void assign(string &x, int &num){
+//	default_random_engine rd;
+//    mt19937 generator(rd());
+//    uniform_int_distribution<int> distribution(0, 29);
+
+	srand(time(0));
+	int temp = (rand() * num) % 30;
+	cerr << num << endl;
+	num++;
+	if(temp <= 9){
+		x = "CHERRY";
+	}
+	else if(temp <= 19){
+		x = "SEVEN";
+	}else{
+		x = "BELL";
+	}
+}
 
 void slots() {
-    symbols r1 = symbols(rand() % 3);
-    symbols r2 = symbols(rand() % 3);
-    symbols r3 = symbols(rand() % 3);
+	
+//    default_random_engine rd;
+//	mt19937 generator(rd());
+//    uniform_int_distribution<int> distribution(0, 29);
+	
+	int num = 0;
+    string r1;
+	assign(r1, num);
+    string r2; 
+	assign(r2, num);
+    string r3;
+	assign(r3, num);
 
-    cout << names[r1] << " | " << names[r2] << " | " << names[r3] << "\n";
+    cout << r1 << " | " << r2 << " | " << r3 << "\n";
 
     if (r1 == r2 && r2 == r3)
         cout << "Three of a kind!\n";				//Add to player cash
@@ -130,9 +160,9 @@ int russrou() {
 
 int main(){
 	cout << "1) BLJK\n 2) RDB\n 3) SLOTS\n 4) RR" << endl;
-	random_device rd;  // a seed source for the random number engine
-    mt19937 gen(rd()); // mersenne_twister_engine seeded with rd()
-    cout << uniform_int_distribution<> distrib(1, 4);
+//	random_device rd;  // a seed source for the random number engine
+//    mt19937 gen(rd()); // mersenne_twister_engine seeded with rd()
+//    cout << uniform_int_distribution<> distrib(1, 4);
 	int temp;
 	cin >> temp;
 	if(temp == 1){
