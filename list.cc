@@ -194,12 +194,58 @@ void add_to(CircDLelement_List<string> &list, string new_name) {
 
 }
 
+//add elements to circle list for bridge
+void add_element(CircDLelement<string>* first_node, CircDLelement<string>* node) {
+	auto prev_node = first_node->getPrev();
+
+	if (prev_node != first_node) {
+		prev_node->setNext(node);
+		first_node->setPrev(node);
+		node->setPrev(prev_node);
+		node->setNext(first_node);
+	} else {
+		first_node->setNext(node);
+		first_node->setPrev(node);
+		node->setNext(first_node);
+		node->setPrev(first_node);
+	}
+
+}
+
+// visualize bridge circle linked list
+void visualize_list(const vector<string>& item_list) {
+	Bridges bridges (3, "JunKuang",
+			"267242104525");
+
+	vector<CircDLelement<string>*> node_vec;
+
+	CircDLelement<string> *first_node = new CircDLelement<string>(item_list.at(0), item_list.at(0));
+	first_node->setPrev(first_node);
+	first_node->setNext(first_node);
+	node_vec.push_back(first_node);
+
+	CircDLelement_List<string> circle_list(first_node);
+
+	for (int i = 1; i < item_list.size(); i++) {
+		const string& str = item_list.at(i);
+		CircDLelement<string> *node = new CircDLelement<string>(str, str);
+		node_vec.push_back(node);
+
+		add_element(first_node,node);
+	}
+	bridges.setDataStructure(first_node);
+	bridges.visualize();
+
+	for (auto ptr : node_vec) {
+		delete ptr;
+	}
+}
 
 int main() {
-	vector<string> name_list = {"cat", "dog", "fish", "tiger", "hi", "apple"};
+	vector<string> name_list = {"cat", "dog", "fish", "tiger", "hi", "apple", "big"};
 	
 	CircleList dl{};
 	
-	dl.visualize_list(name_list);
+	visualize_list(name_list);
 
 }
