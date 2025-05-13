@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include "Bridges.h"
 #include "CircDLelement.h"
@@ -185,16 +186,6 @@ class CircleList {
 
 };
 
-void add_to(CircDLelement_List<string> &list, string new_name) {
-    auto head = list.begin();
-    auto tail = head--;
-
-    cout << *head << endl;
-    cout << *tail << endl;
-
-//  CircDLelement<string>  *node = new CircDLelement<string> (new_name, new_name);
-
-}
 
 //add elements to circle list for bridge
 void add_element(CircDLelement<string>* first_node, CircDLelement<string>* node) {
@@ -218,7 +209,8 @@ void add_element(CircDLelement<string>* first_node, CircDLelement<string>* node)
 void visualize_list(const vector<string>& item_list) {
 	Bridges bridges (3, "JunKuang",
 			"267242104525");
-
+	
+	// hold vector of pointer to delete, to stop memory leak
 	vector<CircDLelement<string>*> node_vec;
 	
 	//initialize the list or it does not work
@@ -245,11 +237,3 @@ void visualize_list(const vector<string>& item_list) {
 	}
 }
 
-int main() {
-	vector<string> name_list = {"cat", "dog", "fish", "tiger", "hi", "apple", "big"};
-	
-	CircleList dl{};
-	
-	visualize_list(name_list);
-
-}
