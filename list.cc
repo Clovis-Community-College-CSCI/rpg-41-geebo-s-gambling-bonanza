@@ -200,7 +200,7 @@ void add_to(CircDLelement_List<string> &list, string new_name) {
 void add_element(CircDLelement<string>* first_node, CircDLelement<string>* node) {
 	auto prev_node = first_node->getPrev();
 
-	if (prev_node != first_node) {
+	if (prev_node != first_node) { //when their is more than one node in list
 		prev_node->setNext(node);
 		first_node->setPrev(node);
 		node->setPrev(prev_node);
@@ -220,7 +220,8 @@ void visualize_list(const vector<string>& item_list) {
 			"267242104525");
 
 	vector<CircDLelement<string>*> node_vec;
-
+	
+	//initialize the list or it does not work
 	CircDLelement<string> *first_node = new CircDLelement<string>(item_list.at(0), item_list.at(0));
 	first_node->setPrev(first_node);
 	first_node->setNext(first_node);
@@ -228,6 +229,7 @@ void visualize_list(const vector<string>& item_list) {
 
 	CircDLelement_List<string> circle_list(first_node);
 
+	//adds node to the circle list
 	for (int i = 1; i < item_list.size(); i++) {
 		const string& str = item_list.at(i);
 		CircDLelement<string> *node = new CircDLelement<string>(str, str);
