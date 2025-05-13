@@ -1,5 +1,7 @@
 # **GEEBO'S GAMBLING BONANZA**
 
+![image](https://github.com/user-attachments/assets/07004c1d-94a1-4144-a1a1-37bab0855b02)
+
 ## rpg-41-geebo-s-gambling-bonanza
 
 - EVAN BETHEL, INHERITOR OF SUFFERING
@@ -22,3 +24,5 @@ The objectives for the player is to earn cash from beating games on each level.
 - Second level player has to play Ride Da Bus and earn $11 
 - Third level player has to play Slots and earn $100
 - Fourth level player has to play Roulette and survive 
+
+
