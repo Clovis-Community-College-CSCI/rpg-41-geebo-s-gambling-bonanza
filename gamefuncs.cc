@@ -16,7 +16,7 @@ class Deck{
 
 	Deck(Suit &newSuit, int newVal) : suit(newSuit), value(newVal){}
 	
-	Suit randSuit(){
+	int randSuit(){
 		default_random_engine generator;										//
     	uniform_int_distribution<int> distribution(0, 3);
 		return distribution(generator);
@@ -28,19 +28,47 @@ class Deck{
 //    	return uniform_int_distribution<> distrib(1, 13);
 
 		default_random_engine generator;                                        //
-        uniform_int_distribution<int> distribution(0, 12);
+        uniform_int_distribution<int> distribution(1, 13);
         return distribution(generator);
 
 	}
 	
 	int randBJval(){
-		random_device rd;  // a seed source for the random number engine
-    	mt19937 gen(rd()); // mersenne_twister_engine seeded with rd()
-    	return uniform_int_distribution<> distrib(1, 10);
+//		random_device rd;  // a seed source for the random number engine
+//    	mt19937 gen(rd()); // mersenne_twister_engine seeded with rd()
+//    	return uniform_int_distribution<> distrib(1, 10);
+		default_random_engine generator;                                        //
+        uniform_int_distribution<int> distribution(1, 10);
+        return distribution(generator);
+
 	}
 
 
 };	
+
+///////////////////
+//GAMES BASECLASS//
+///////////////////
+
+class Games {
+protected:
+    int minBet;
+    int maxBet;
+    int currentBet;
+    int winnings;
+public:
+    Games(int min = 0, int max = 100) : minBet(min), maxBet(max), currentBet(0), winnings(0) {}
+    virtual void playGame(Player &p) = 0;
+    virtual void stopGame(Player &p) = 0;
+    void setBet(int bet) {
+        if (bet < minBet)
+            currentBet = minBet;
+        else if (bet > maxBet)
+            currentBet = maxBet;
+        else
+            currentBet = bet;
+    }
+};
 
 
 //////////////
@@ -206,7 +234,7 @@ public:
 
         bool improvedOdds = p.improveGameOdds();
 
-        while (true) {
+       while (true) {
             cout << "Will the next card be higher (h) or lower (l)? ";
             char guess;
             cin >> guess;
@@ -501,14 +529,6 @@ public:
         winnings = 0;
     }
 };
-        } else {
-            cout << "You broke even." << endl;
-            p.addCash(currentBet); // Return bet only
-        }
-        cout << "Your new balance: $" << p.getCash() << endl;
-        winnings = 0;
-    }
-};
 
 
 /*
@@ -685,27 +705,32 @@ int russrou() {
 //////////
 //DRIVER//
 //////////
-
+*/
 int main(){
 	cout << "1) BLJK\n 2) RDB\n 3) SLOTS\n 4) RR" << endl;
 //	random_device rd;  // a seed source for the random number engine
 //    mt19937 gen(rd()); // mersenne_twister_engine seeded with rd()
 //    cout << uniform_int_distribution<> distrib(1, 4);
+	HighRoller player;
+	BlackJack blackjack;
+	RussianRoulette russrou;
+	Slots slots;
+	RideTheBus rideTheBus;
+while(true){
 	int temp;
 	cin >> temp;
 	if(temp == 1){
-		blackjack();
+		blackjack.playGame(player);
 	}
 	else if(temp==2){
-		rideTheBus();
+		rideTheBus.playGame(player);
 	}
 	else if(temp==3){
-		slots();
+		slots.playGame(player);
 	}
 	else if(temp==4){
-		russrou();
+		russrou.playGame(player);
 	}else { return 0; }
 	return 0;
 }
-
-*/
+}

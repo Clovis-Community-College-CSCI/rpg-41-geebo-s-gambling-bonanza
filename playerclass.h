@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <random>
-#include "inventory.h"
+//#include "inventory.h"
 using namespace std;
 
 //REMEMBER: uniform_int_distribution
@@ -77,7 +77,7 @@ private:
     Property prop;
     int cash;
     // INVENTORY GOES HERE???
-	Inventory_BST inventory;
+//	Inventory_BST inventory;
 	// YES IT DOES!!!
 
 public:
