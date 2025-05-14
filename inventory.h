@@ -15,8 +15,16 @@ class Inventory {
 	Inventory() = default;
 
 	void insert(const Item& new_item) {
-		inventory_db.inser({new_item.name, item});
+		inventory_db.insert({new_item.name, item});
 	}
+/*
+		Node* root = nullptr;
+		void insert(Node*& node, const Item& item) {
+             if (!node) node = new Node(item);
+             else if (item.name== node->item.name) node->item.count++;
+             else if (item < node->item) insert(node->left, item);
+             else insert(node->right, item);
+         }*/
 
 	bool contains(string name) {
 		if (inventory_db.contains(name)) return true;

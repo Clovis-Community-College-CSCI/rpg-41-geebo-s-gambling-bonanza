@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <random>
+//#include "inventory.h"
 using namespace std;
 
 //REMEMBER: uniform_int_distribution
@@ -32,6 +33,7 @@ public:
     Suit suit;
     bool red;
     int value;
+
 
     Card(Suit newSuit, int newVal) : suit(newSuit), value(newVal) {
         red = (suit == DIAMOND || suit == HEART);
@@ -75,6 +77,8 @@ private:
     Property prop;
     int cash;
     // INVENTORY GOES HERE???
+//	Inventory_BST inventory;
+	// YES IT DOES!!!
 
 public:
     Player(int startingCash = 10) : cash(startingCash), prop(LUCK) {}
