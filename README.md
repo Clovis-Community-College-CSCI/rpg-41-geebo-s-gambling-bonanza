@@ -7,7 +7,7 @@
 - EVAN BETHEL, INHERITOR OF SUFFERING
 - STEFANIE MOTSENBOCKER, VIBING (and the item class)
 - JUN KUANG, THE BRIDGEEngineer
-- RIDAH CHAUDHRY, JJK CURSELORD
+- RIDAH CHAUDHRY, JJK CURSELORD (world map && user interface via mainmenu)
 
 ## Game Description
 
