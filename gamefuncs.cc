@@ -119,7 +119,7 @@ public:
                 int card = Card::randBJval();
                 player += card;
                 cout << "You drew: " << card << ", total: " << player << endl;
-            } else break;
+            } else return;
         }
 
         if (player > 21) {
@@ -267,7 +267,7 @@ public:
                 score++;
             } else {
                 cout << "Wrong! Game over. Your score: " << score << endl;
-                break;
+                return;
             }
             current = next;
         }
@@ -730,7 +730,8 @@ while(true){
 	}
 	else if(temp==4){
 		russrou.playGame(player);
-	}else { return 0; }
-	return 0;
+	}else { continue; }
+
 }
+	return 0;
 }
