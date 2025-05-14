@@ -63,11 +63,19 @@ public:
 //PLAYER CLASS//
 ////////////////
 
+enum Property{
+	CHEAT,
+	DOUBLE, 
+	LUCK,
+	HR
+};
+
 class Player{
 	private:
-	
-		int cash;
 
+		Property prop;
+		int cash;
+//		INVENTORY GOES HERE???
 	
 	public:
 
@@ -77,8 +85,28 @@ class Player{
 		int setCash(int &newCash){
 			cash = newCash;
 		}
+
+		int getProp()const{
+            return prop;
+        }
+        int setProp(int &newProp){
+            prop = newProp;
+        }
+
 };
 class Cheater:public Player{
 	
+
+};
+class DorN:public Player{
+
+
+};
+class HighRoller:public Player{
+
+
+};
+class Lucky:public Player{
+
 
 };

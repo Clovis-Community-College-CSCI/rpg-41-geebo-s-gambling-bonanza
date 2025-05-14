@@ -9,9 +9,51 @@ using namespace std;
 
 //TODO: Replace these games' distribution with distributions from the player and enemy class
 
+class Deck{
+	public:
+	Suit suit;
+	bool red;
+	int value;
+
+	Deck(Suit &newSuit, int newVal) : suit(newSuit), value(newVal){}
+	
+	Suit randSuit(){
+		default_random_engine generator;										//
+    	uniform_int_distribution<int> distribution(0, 3);
+		return distribution(generator);
+	}
+	
+	int randVal(){
+//		random_device rd;  // a seed source for the random number engine
+//    	mt19937 gen(rd()); // mersenne_twister_engine seeded with rd()
+//    	return uniform_int_distribution<> distrib(1, 13);
+
+		default_random_engine generator;                                        //
+        uniform_int_distribution<int> distribution(0, 12);
+        return distribution(generator);
+
+	}
+	
+	int randBJval(){
+		random_device rd;  // a seed source for the random number engine
+    	mt19937 gen(rd()); // mersenne_twister_engine seeded with rd()
+    	return uniform_int_distribution<> distrib(1, 10);
+	}
+
+
+};	
+
+class Games{
+	protected:
+		int minBet;
+		int maxBet;
+	public:
+		virtual void playGame(Player &p) = 0;
+		virtual void stopGame(Player &p) = 0;
+
 //////////////
 //BLACK JACK//
-//////////////
+/////////////
 
 void blackjack() {
     int player = Card::randBJval() + Card::randBJval();
@@ -98,7 +140,7 @@ void assign(string &x, int &num){
 
 	srand(time(0));
 	int temp = (rand() * num) % 30;
-	cerr << num << endl;
+//	cerr << num << endl;
 	num++;
 	if(temp <= 9){
 		x = "CHERRY";
