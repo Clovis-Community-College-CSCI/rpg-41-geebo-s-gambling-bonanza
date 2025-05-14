@@ -4,9 +4,9 @@
 
 ## rpg-41-geebo-s-gambling-bonanza
 
-- EVAN BETHEL, INHERITOR OF SUFFERING
-- STEFANIE MOTSENBOCKER, VIBING (and the item class)
-- JUN KUANG, THE BRIDGEEngineer
+- EVAN BETHEL, INHERITOR OF SUFFERING - made the game playable && fun!
+- STEFANIE MOTSENBOCKER, VIBING (and the item class) - made inventory!
+- JUN KUANG, THE BRIDGEEngineer - visualized using BRIDGES!
 - RIDAH CHAUDHRY, JJK CURSELORD - world map (not scrollable srry) && user interface via mainmenu using ncurses lib
 
 ## Game Description
