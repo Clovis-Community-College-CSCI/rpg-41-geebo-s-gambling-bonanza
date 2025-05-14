@@ -17,7 +17,7 @@ class Inventory_BST {
 		};
 
 		Node* root = nullptr;
-		void insert(Node*& node const Item& item) {
+		void insert(Node*& node, const Item& item) {
              if (!node) node = new Node(item);
              else if (item.name== node->item.name) node->item.count++;
              else if (item < node->item) insert(node->left, item);
